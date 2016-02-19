@@ -1,0 +1,13 @@
+{
+  "name": "lambda-instance",
+  "main": "index.js",
+  "version": "0.2.0",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "grunt": "^0.4.5",
+    "grunt-aws-lambda": "^0.10.0"
+  },
+  "devDependencies": {},
+  "private": true,
+  "license": "MIT"
+}
