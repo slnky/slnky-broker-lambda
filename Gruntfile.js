@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         lambda_package: { default: {} },
         lambda_deploy: {
             default: {
-                arn: "arn:aws:lambda:us-east-1:199947497176:function:instance-terminated",
+                arn: "arn:aws:lambda:us-east-1:199947497176:function:sln-broker",
                 options: {
 
                 }

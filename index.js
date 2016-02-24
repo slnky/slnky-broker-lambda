@@ -1,12 +1,12 @@
-require('dotenv').config();
 var request = require('request');
+var url = "http://teejay.ulive.sh/hooks/aws";
 
 exports.handler = function (event, context) {
   if (!event) {
     return context.done("event not set");
   } else {
     request({
-      url: process.env.BROKER_URL,
+      url: url,
       method: "POST",
       json: true,
       body: event
