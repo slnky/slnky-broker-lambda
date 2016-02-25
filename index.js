@@ -1,7 +1,10 @@
 var request = require('request');
-var url = "https://slnky.ulive.sh/hooks/aws";
+require('dotenv').config();
+var host = process.env.SLNKY_HOST || "https://slnky.ulive.sh";
+var url = host + "/hooks/aws";
 
 exports.handler = function (event, context) {
+  console.log("URL: "+url);
   if (!event) {
     return context.done("event not set");
   } else {
@@ -11,11 +14,13 @@ exports.handler = function (event, context) {
       json: true,
       body: event
     }, function (error, response, body) {
-      if (response.statusCode == 200) {
+      if (error) {
+        context.done(error);
+      } else if (response.statusCode == 200) {
         context.done(null, "event posted");
       } else {
         console.log(response.statusCode);
-        context.done("post failed");
+        context.done("post failed: unknown");
       }
     });
   }
