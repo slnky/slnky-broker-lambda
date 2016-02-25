@@ -1,5 +1,5 @@
 var request = require('request');
-var url = "http://teejay.ulive.sh/hooks/aws";
+var url = "https://slnky.ulive.sh/hooks/aws";
 
 exports.handler = function (event, context) {
   if (!event) {
@@ -14,6 +14,7 @@ exports.handler = function (event, context) {
       if (response.statusCode == 200) {
         context.done(null, "event posted");
       } else {
+        console.log(response.statusCode);
         context.done("post failed");
       }
     });
