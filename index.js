@@ -4,7 +4,6 @@ var host = process.env.SLNKY_HOST || "https://slnky.ulive.sh";
 var url = host + "/hooks/aws";
 
 exports.handler = function (event, context) {
-  console.log("URL: "+url);
   if (!event) {
     return context.done("event not set");
   } else {
@@ -19,8 +18,7 @@ exports.handler = function (event, context) {
       } else if (response.statusCode == 200) {
         context.done(null, "event posted");
       } else {
-        console.log(response.statusCode);
-        context.done("post failed: unknown");
+        context.done("unknown error: "+response.statusCode+": "+JSON.stringify(body));
       }
     });
   }
