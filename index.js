@@ -11,7 +11,7 @@ exports.handler = function (event, context) {
       url: url,
       method: "POST",
       json: true,
-      body: event
+      body: {event: event}
     }, function (error, response, body) {
       if (error) {
         context.done(error);
