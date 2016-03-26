@@ -1,5 +1,5 @@
 {
-  "name": "lambda-instance",
+  "name": "slnky-broker-lambda",
   "main": "index.js",
   "version": "0.2.0",
   "dependencies": {
